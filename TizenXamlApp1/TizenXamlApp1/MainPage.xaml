@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TizenXamlApp1"
+             x:Class="TizenXamlApp1.MainPage">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="White">
+            <Image Source="wallpaper.jpg" AbsoluteLayout.LayoutBounds="0,0,1920,1080" WidthRequest="1920" HeightRequest="1080"></Image>
+            <!--첫번째 줄에 대해 코인총수익, 디지털 시계, 아날로그 시계-->
+            <StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0,0,1920,200" WidthRequest="1920" HeightRequest="1080">
+                <StackLayout x:Name="보유현황레이어" Orientation="Vertical" HeightRequest="200" WidthRequest="800">
+                    <Label Text="보유현황" TextColor="Black" FontSize="60"></Label>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="수익률" TextColor="Black" FontSize="40" HorizontalOptions="Start" Margin="2"></Label>
+                        <Label x:Name="총수익률" Text="00.00%" TextColor="Black" FontSize="40" HorizontalOptions="Start" Margin="2"></Label>
+                        <BoxView HorizontalOptions="FillAndExpand"></BoxView>
+                        <Label Text="매수금" TextColor="Black" FontSize="40" HorizontalOptions="Start" Margin="2"></Label>
+                        <Label x:Name="총매수금" Text="999,999원" TextColor="Black" FontSize="40" HorizontalOptions="Start" Margin="2"></Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="수익금" TextColor="Black" FontSize="40" HorizontalOptions="Start" Margin="2"></Label>
+                        <Label x:Name="총수익금" Text="999,999원" TextColor="Black" FontSize="40" HorizontalOptions="End" Margin="2"></Label>
+                        <BoxView HorizontalOptions="FillAndExpand"></BoxView>
+                        <Label Text="평가금" TextColor="Black" FontSize="40" HorizontalOptions="Start" Margin="2"></Label>
+                        <Label x:Name="총평가금" Text="999,999원" TextColor="Black" FontSize="40" HorizontalOptions="End" Margin="2"></Label>
+                    </StackLayout>
+                </StackLayout>
+                <!-- 디지털시계 구현 -->
+                <Label x:Name="DigitalClock" Text="00:00" TextColor="Black" FontSize="140" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                <!-- 아날로그시계 구현 -->
+                <BoxView HeightRequest="200" WidthRequest="200"></BoxView>
+            </StackLayout>
+            <BoxView BackgroundColor="DimGray" AbsoluteLayout.LayoutBounds="0,210,1920,10"></BoxView>
+            <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="0,210,800,800" WidthRequest="800">
+                <StackLayout Orientation="Horizontal" HeightRequest="220">
+                    <StackLayout Orientation="Vertical">
+                        <Label x:Name="코인심볼_1" Text="BTC" FontSize="60" TextColor="Black" HorizontalOptions="Start" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCoinSymbolTapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="코인수익률_1" Text="00.00%" TextColor="Black" FontSize="40" HorizontalOptions="StartAndExpand" ></Label>
+                            <BoxView HorizontalOptions="FillAndExpand"></BoxView>
+                            <Label x:Name="코인수익금_1" Text="999,999원" TextColor="Black" FontSize="40" HorizontalOptions="EndAndExpand" ></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="코인개수_1" Text="120.35개" TextColor="Black" FontSize="40"></Label>
+                            <BoxView  HorizontalOptions="FillAndExpand"></BoxView>
+                            <Label x:Name="코인평가금_1" Text="999,999원" TextColor="Black" FontSize="40"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView WidthRequest="10" HorizontalOptions="FillAndExpand"></BoxView>
+                    <StackLayout Orientation="Vertical">
+                        <Label x:Name="코인현재가_1" Text="50000000" TextColor="Black" FontSize="80"></Label>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout Orientation="Vertical">
+                                <Label x:Name="코인전일대비상승금_1" Text="100000" FontSize="40" TextColor="Red" Margin="0"></Label>
+                                <Label x:Name="코인전일대비상승률_1" Text="30%" FontSize="40" TextColor="Red" Margin="0"></Label>
+                            </StackLayout>
+                            <Image x:Name="코인이미지_1" WidthRequest="120" HeightRequest="120"></Image>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <!-- Coin 2 Info -->
+                <StackLayout Orientation="Horizontal" HeightRequest="220">
+                    <StackLayout Orientation="Vertical">
+                        <Label x:Name="코인심볼_2" Text="ETH" FontSize="60" TextColor="Black" HorizontalOptions="Start" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCoinSymbolTapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="코인수익률_2" Text="00.00%" TextColor="Black" FontSize="40" HorizontalOptions="Start" ></Label>
+                            <BoxView HorizontalOptions="FillAndExpand"></BoxView>
+                            <Label x:Name="코인수익금_2" Text="999,999원" TextColor="Black" FontSize="40" HorizontalOptions="End" ></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="코인개수_2" Text="120.35개" TextColor="Black" FontSize="40"></Label>
+                            <BoxView HorizontalOptions="FillAndExpand"></BoxView>
+                            <Label x:Name="코인평가금_2" Text="999,999원" TextColor="Black" FontSize="40"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView  WidthRequest="10" HorizontalOptions="FillAndExpand"></BoxView>
+                    <StackLayout Orientation="Vertical">
+                        <Label x:Name="코인현재가_2" Text="50000000" TextColor="Black" FontSize="80"></Label>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout Orientation="Vertical">
+                                <Label x:Name="코인전일대비상승금_2" Text="100000" FontSize="40" TextColor="Red"></Label>
+                                <Label x:Name="코인전일대비상승률_2" Text="30%" FontSize="40" TextColor="Red"></Label>
+                            </StackLayout>
+                            <Image x:Name="코인이미지_2"  WidthRequest="120" HeightRequest="120"></Image>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+                <!-- Coin 3 Info -->
+                <StackLayout Orientation="Horizontal" HeightRequest="220">
+                    <StackLayout Orientation="Vertical">
+                        <Label x:Name="코인심볼_3" Text="XRP" FontSize="60" TextColor="Black" HorizontalOptions="Start" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCoinSymbolTapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="코인수익률_3" Text="00.00%" TextColor="Black" FontSize="40" HorizontalOptions="Start" ></Label>
+                            <BoxView  HorizontalOptions="FillAndExpand"></BoxView>
+                            <Label x:Name="코인수익금_3" Text="999,999원" TextColor="Black" FontSize="40" HorizontalOptions="End" ></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="코인개수_3" Text="120.35개" TextColor="Black" FontSize="40"></Label>
+                            <BoxView HorizontalOptions="FillAndExpand"></BoxView>
+                            <Label x:Name="코인평가금_3" Text="999,999원" TextColor="Black" FontSize="40"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView WidthRequest="10" HorizontalOptions="FillAndExpand"></BoxView>
+                    <StackLayout Orientation="Vertical">
+                        <Label x:Name="코인현재가_3" Text="50000000" TextColor="Black" FontSize="80"></Label>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout Orientation="Vertical">
+                                <Label x:Name="코인전일대비상승금_3" Text="100000" FontSize="40" TextColor="Red" ></Label>
+                                <Label x:Name="코인전일대비상승률_3" Text="30%" FontSize="40" TextColor="Red" ></Label>
+                            </StackLayout>
+                            <Image x:Name="코인이미지_3" WidthRequest="120" HeightRequest="120"></Image>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <AbsoluteLayout x:Name="ClockLayout" AbsoluteLayout.LayoutBounds="1640,10" WidthRequest="220" HeightRequest="220" SizeChanged="OnAbsoluteLayoutSizeChanged">
+                <!--<Image Source="clock_background.png" HeightRequest="200" WidthRequest="200" AbsoluteLayout.LayoutBounds="1640,10"/>-->
+                <BoxView x:Name="hourHand" WidthRequest="6" HeightRequest="40" BackgroundColor="Black" 
+                         AbsoluteLayout.LayoutBounds="1740,80"/>
+                <BoxView x:Name="minuteHand" WidthRequest="4" HeightRequest="60" BackgroundColor="Black" 
+                         AbsoluteLayout.LayoutBounds="1740,80"/>
+                <BoxView x:Name="secondHand" WidthRequest="4" HeightRequest="70" BackgroundColor="Red"  
+                         AbsoluteLayout.LayoutBounds="1740,80"/>
+            </AbsoluteLayout>
+            <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutBounds="820,220" >
+                <WebView x:Name="그래프" Source="https://www.upbit.com/full_chart?code=CRIX.UPBIT.KRW-BTC" HeightRequest ="540" WidthRequest="1200"></WebView>
+                <Button Text="Add Coin" Clicked="OnAddCoinClicked" />
+            </StackLayout>
+            <BoxView BackgroundColor="Black" Opacity="0.4" AbsoluteLayout.LayoutBounds="0,900" HeightRequest="200" WidthRequest="1920"></BoxView>
+            <Label x:Name="NEWS" Text="Test1" FontSize="70" TextColor="White" AbsoluteLayout.LayoutBounds="0,900" WidthRequest="1920"></Label>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
