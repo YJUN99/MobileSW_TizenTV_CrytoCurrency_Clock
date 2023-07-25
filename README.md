@@ -1,10 +1,10 @@
 ## 전체 레이아웃
 
-![image01.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5a6b3280-d3d2-4051-9a88-153144eeecda/image01.png)
+<image src = "pictures/image01.png">
 
 ## 기능소개
-
-![image02.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cba16121-434d-4d50-8ed0-af7bf3bf0b20/image02.png)
+<image src = "pictures/image02.png">
+<image src = "pictures/image03.gif">
 
 1. 보유하고 있는 총 코인에 따른 수익률, 수익금, 매수금, 평가금
     
